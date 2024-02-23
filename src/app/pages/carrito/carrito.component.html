@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0" style="margin-right: 8px;">Carrito de Compras</h5>
+        <button class="btn btn-primary p-0 px-2" (click)="comprar()"><i class="fa-solid fa-cart-shopping"></i>COMPRAR</button>
+    </div>
+    <div class="card-body">
+        <app-sin-datos *ngIf="articuloServe.articulos.length==0"></app-sin-datos>
+
+        <table *ngIf="articuloServe.articulos.length>0"class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">imagen</th>
+                <th scope="col">descripcion</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of articuloServe.articulos;let i = index">
+                <th>{{a.id_articulo}}</th>
+                <td>
+                    <img [src]="url+a.url_img">
+                </td>
+                <td>{{a.descripcion}}</td>
+                <td>{{a.precio|currency}}</td>
+                <td>
+                  <a title="eliminar articulos" (click)="eliminarArticulo(i)" style="margin-right: 10px;color: red;"><i class="fa-solid fa-trash"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

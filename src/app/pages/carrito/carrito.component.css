@@ -1,0 +1,20 @@
+.circleGreen
+{
+    color: green;
+}
+
+.circleRed
+{
+    color: red;
+}
+
+a:hover
+{
+    cursor: pointer;
+}
+
+img{
+    border-radius: 50%;
+    width: 40px;
+    height: auto;
+}

@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex">
+            <h5>Agregar Articulo a Tienda</h5>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">codigo: </label>
+                    <input [(ngModel)]="articulo.codigo" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">descripcion: </label>
+                    <input [(ngModel)]="articulo.descripcion" type="text" class="form-control" >
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">precio: </label>
+                    <input [(ngModel)]="articulo.precio" type="number" class="form-control">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="mb-3">
+                    <label class="form-label">stock: </label>
+                    <input [(ngModel)]="articulo.stock" type="number" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Imagen</label>
+                    <input class="form-control" (change)="onFileSelected($event)" type="file" id="formFile">
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="row">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-primary" (click)="registrarInfo()">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+</div>

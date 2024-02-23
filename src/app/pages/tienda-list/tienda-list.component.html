@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex">
+            <h5 class="mb-0" style="margin-right: 8px;">Lista de Tiendas</h5>
+            <button class="btn btn-primary p-0 px-2" (click)="irRegistrarTienda()"><i class="fa-solid fa-plus"></i>AGREGAR</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <app-cargando *ngIf="cargando"></app-cargando>
+        <app-sin-datos *ngIf="!cargando && !error &&tiendas.length==0"></app-sin-datos>
+        <app-error [descripcion]="msgError" *ngIf="!cargando&&error"></app-error>
+
+        <table *ngIf="!cargando&&!error&&tiendas.length>0" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Activo</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let t of tiendas;">
+                <th>{{t.id_tienda}}</th>
+                <td>{{t.nombre}}</td>
+                <td>{{t.sucursal}}</td>
+                <td><i [ngClass]="t.activo==1? 'circleGreen':'circleRed'" class="fa-solid fa-circle"></i></td>
+                <td>
+                  <a (click)="verArticulosTienda(t.id_tienda)" title="ver articulos" style="margin-right: 10px;"><i class="fa-solid fa-eye"></i></a>
+                  <a (click)="verListaArticulosTienda(t.id_tienda)" title="lista de articulos"><i class="fa-solid fa-list"></i></a>
+                
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

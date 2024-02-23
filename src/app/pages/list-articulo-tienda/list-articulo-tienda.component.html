@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex">
+            <h5 class="mb-0" style="margin-right: 8px;">Lista de Articulos de la tienda: {{tienda.nombre}}</h5>
+            <button class="btn btn-primary p-0 px-2" (click)="agregarArticulo()"><i class="fa-solid fa-plus"></i>AGREGAR ARTICULO</button>
+        </div>
+    </div>
+    <div class="card-body">
+        <app-cargando *ngIf="cargando"></app-cargando>
+        <app-sin-datos *ngIf="!cargando && !error &&articulos.length==0"></app-sin-datos>
+        <app-error [descripcion]="msgError" *ngIf="!cargando&&error"></app-error>
+        <table *ngIf="!cargando&&!error&&articulos.length>0" class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">id</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Activo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let a of articulos;">
+                <th>{{a.id_articulo}}</th>
+                <td>{{a.codigo}}</td>
+                <td>{{a.precio}}</td>
+                <td>{{a.stock}}</td>
+                <td>
+                    <i [ngClass]="a.activo==1? 'circleGreen':'circleRed'" class="fa-solid fa-circle"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

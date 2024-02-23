@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header">
+        <h5>ARTICULOS</h5>
+    </div>
+    <div class="card-body">
+        <app-cargando *ngIf="cargando"></app-cargando>
+        <app-sin-datos *ngIf="!cargando && !error &&articulos.length==0"></app-sin-datos>
+        <app-error [descripcion]="msgError" *ngIf="!cargando&&error"></app-error>
+        <div *ngIf="!cargando&&!error&&articulos.length>0" class="row">
+            <div *ngFor="let a of articulos" class="col-4">
+                <div class="card" style="width: 15rem;">
+                    <img [src]="url+a.url_img" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">Codígo: {{a.codigo}}</h5>
+                      <p class="card-text">Descripcion: {{a.descripcion}}</p>
+                      <div class="d-flex justify-content-around mb-2">
+                          <a><span class="badge text-bg-primary">{{a.precio|currency}}</span></a>
+                          <a><span class="badge text-bg-success">{{a.nombre_tienda}}</span></a>
+                      </div>
+                      <a class="btn btn-primary" (click)="agregarCarrito(a)"><i class="fa-solid fa-cart-shopping"></i>agregar al carrito</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

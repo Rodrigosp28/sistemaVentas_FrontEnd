@@ -1,0 +1,14 @@
+.circleGreen
+{
+    color: green;
+}
+
+.circleRed
+{
+    color: red;
+}
+
+a:hover
+{
+    cursor: pointer;
+}

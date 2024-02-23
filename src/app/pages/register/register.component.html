@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+
+    <div class="bg-info p-5 rounded-5 text-secondary" style="width: 30rem;">
+
+        <div class="d-flex justify-content-center">
+
+            <div class="card" style="width: 28rem;">
+                <div class="card-header">
+                  REGISTRARSE
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre: </label>
+                        <input [(ngModel)]="cliente.nombre" type="text" class="form-control" placeholder="nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Apellidos: </label>
+                        <input [(ngModel)]="cliente.apellidos" type="text" class="form-control" placeholder="Apellidos">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Direccion: </label>
+                        <input [(ngModel)]="cliente.direccion" type="text" class="form-control" placeholder="Direccion">
+                    </div>
+                    <div class="input-group mb-3" >
+                        <div class="input-group-text bg-info">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <input [(ngModel)]="cliente.usuario" class="form-control" type="text" placeholder="Username" />
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-text bg-info">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <input [(ngModel)]="cliente.contrasena" class="form-control" type="password" placeholder="Password" />
+                    </div>
+                    <div class="d-flex justify-content-around mt-3">
+                        <button class="btn btn-primary" (click)="irLogin()">INICIAR SESION</button>
+                        <button class="btn btn-success" (click)="registrar()">REGISTRAR</button>
+                    </div>
+                </div>
+              </div>
+        </div>
+
+    </div>
+
+</div>

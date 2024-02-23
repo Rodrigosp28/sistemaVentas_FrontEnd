@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">Ventas</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['articulos',0]" aria-current="page">Articulos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['tiendas']"  aria-current="page">Tiendas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLinkActive="active" [routerLink]="['clientes']"  aria-current="page">Clientes</a>
+          </li>
+        </ul>
+        <button type="button" (click)="irCarrito()" class="btn btn-primary position-relative" style="margin-right: 10px;">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span *ngIf="articuloServ.articulos.length>0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{articuloServ.articulos.length}}
+            </span>
+          </button>
+          <button type="button" (click)="salir()" class="btn btn-outline-danger">Salir</button>
+
+      </div>
+    </div>
+  </nav>
